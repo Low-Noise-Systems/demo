@@ -1,0 +1,57 @@
+---
+- name: Update system packages
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Update apt packages (Debian/Ubuntu)
+      when: ansible_pkg_mgr == "apt"
+      block:
+        - name: Update apt cache
+          ansible.builtin.apt:
+            update_cache: true
+            cache_valid_time: 3600
+
+        - name: Upgrade all packages
+          ansible.builtin.apt:
+            upgrade: safe
+          register: apt_result
+
+        - name: Display updated packages
+          ansible.builtin.debug:
+            msg: "{{ apt_result.stdout_lines | default(['No updates available']) }}"
+
+        - name: Check if reboot is required
+          ansible.builtin.stat:
+            path: /var/run/reboot-required
+          register: reboot_file
+
+        - name: Notify if reboot is needed
+          ansible.builtin.debug:
+            msg: "NOTICE: System reboot is required to complete updates"
+          when: reboot_file.stat.exists
+
+    - name: Update dnf packages (RHEL/Fedora)
+      when: ansible_pkg_mgr == "dnf"
+      block:
+        - name: Upgrade all packages
+          ansible.builtin.dnf:
+            name: "*"
+            state: latest
+            security: false
+          register: dnf_result
+
+        - name: Display update summary
+          ansible.builtin.debug:
+            msg: "Packages updated: {{ dnf_result.results | default([]) | length }}"
+
+        - name: Check if reboot is needed
+          ansible.builtin.command: needs-restarting -r
+          register: reboot_check
+          failed_when: false
+          changed_when: false
+
+        - name: Notify if reboot is needed
+          ansible.builtin.debug:
+            msg: "NOTICE: System reboot is required to complete updates"
+          when: reboot_check.rc == 1

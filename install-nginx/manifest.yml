@@ -1,0 +1,9 @@
+name: Install Nginx
+description: Installs and configures Nginx web server with a default site
+type: ansible
+category: Web Servers
+os: [linux]
+entry: playbook.yml
+timeout: 600
+verbosity: 1
+tags: [web, nginx, reverse-proxy]

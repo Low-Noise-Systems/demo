@@ -1,0 +1,8 @@
+name: Collect System Info
+description: Gathers hostname, OS, CPU, memory, uptime, and network information
+type: python
+category: Monitoring
+os: [linux]
+entry: sysinfo.py
+timeout: 60
+tags: [inventory, audit, system-info]

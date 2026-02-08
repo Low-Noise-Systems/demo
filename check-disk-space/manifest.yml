@@ -1,0 +1,8 @@
+name: Check Disk Space
+description: Reports disk usage for all mounted filesystems and warns if usage exceeds threshold
+type: python
+category: Monitoring
+os: [linux]
+entry: check_disk.py
+timeout: 120
+tags: [disk, monitoring, health-check]

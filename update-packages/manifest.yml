@@ -1,0 +1,9 @@
+name: Update System Packages
+description: Updates all system packages to their latest versions (supports apt and dnf)
+type: ansible
+category: Maintenance
+os: [linux]
+entry: playbook.yml
+timeout: 1800
+verbosity: 0
+tags: [updates, patching, security]
