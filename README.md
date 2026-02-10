@@ -1,28 +1,14 @@
-# MyControl Example Script Repository
+# Example Script Repo (Sea)
 
-This is an example repository for use with MyControl's script repository import feature.
+This folder is a sample Git repository layout for Sea "Script Repos" sync.
 
-## Structure
+Rules:
+- Sea scans **top-level directories**.
+- A directory is treated as a script if it contains `manifest.yml`.
+- `manifest.yml` must contain a stable `id` (UUID string). This allows renaming `name` without losing identity/history.
+- `entry` must be a **relative path** inside the script folder.
 
-Each top-level directory contains a script with its `manifest.yml` descriptor:
-
-```
-install-nginx/       - Ansible playbook to install and configure Nginx
-check-disk-space/    - Python script to check disk usage and alert
-update-packages/     - Ansible playbook to update system packages
-collect-system-info/ - Python script to gather system information
-```
-
-## manifest.yml format
-
-| Field         | Type     | Required | Description                              |
-|---------------|----------|----------|------------------------------------------|
-| `name`        | string   | yes      | Display name of the script               |
-| `description` | string   | no       | Brief description                        |
-| `type`        | string   | yes      | `ansible`, `python`, or `powershell`     |
-| `category`    | string   | no       | Folder/category name (auto-created)      |
-| `os`          | string[] | no       | Target operating systems                 |
-| `entry`       | string   | yes      | Main script filename                     |
-| `timeout`     | integer  | no       | Execution timeout in seconds (default: 3600) |
-| `verbosity`   | integer  | no       | Ansible verbosity 0-4 (default: 0)       |
-| `tags`        | string[] | no       | Tags for filtering                       |
+Included examples:
+- `hello-python/` (multi-file Python)
+- `hello-powershell/` (PowerShell)
+- `hello-ansible/` (Ansible)

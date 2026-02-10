@@ -1,3 +1,4 @@
+id: "34074319-7a53-4a0e-83ac-0dff6e45d992"
 name: Update System Packages
 description: Updates all system packages to their latest versions (supports apt and dnf)
 type: ansible

@@ -1,3 +1,4 @@
+id: "5c0d72cc-7f39-440c-8068-80ef0f3a23d8"
 name: Check Disk Space
 description: Reports disk usage for all mounted filesystems and warns if usage exceeds threshold
 type: python

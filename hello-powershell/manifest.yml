@@ -1,0 +1,7 @@
+id: "ea1fb8ec-2927-41ca-8f9f-1c744e420df4"
+name: "Hello PowerShell"
+description: "PowerShell script (runs on Windows, or on Linux/macOS with pwsh)."
+type: "powershell"
+category: "Examples"
+entry: "main.ps1"
+timeout: 60

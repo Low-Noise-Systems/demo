@@ -1,3 +1,4 @@
+id: "bd3c72fd-5807-49b0-b423-e2729b1b5cd2"
 name: Collect System Info
 description: Gathers hostname, OS, CPU, memory, uptime, and network information
 type: python

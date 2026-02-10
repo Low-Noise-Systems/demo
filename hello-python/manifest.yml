@@ -1,0 +1,7 @@
+id: "c5304a16-f658-4b5d-b93f-4bc2bd9a08e1"
+name: "Hello Python (multi-file)"
+description: "Python script with a local import (folder bundle)."
+type: "python"
+category: "Examples"
+entry: "main.py"
+timeout: 60

@@ -1,3 +1,4 @@
+id: "f210016d-1540-487d-8fef-3b06339c3a70"
 name: Install Nginx
 description: Installs and configures Nginx web server with a default site
 type: ansible

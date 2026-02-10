@@ -1,0 +1,11 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Print a message
+      debug:
+        msg: "Hello from Ansible"
+
+    - name: Render a template into /tmp (demonstrates multi-file bundle)
+      template:
+        src: templates/hello.j2
+        dest: /tmp/sea-script-repo-hello.txt
